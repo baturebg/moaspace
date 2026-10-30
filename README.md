@@ -1,16 +1,23 @@
-# React + Vite
+# moaspace
+Social Networking platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A React + Vite build of the Moa Space Figma designs, with light and dark themes.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev      # http://localhost:5173
+```
 
-## React Compiler
+## Build
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build    # outputs to dist/
+npm run lint
+```
 
-## Expanding the Oxlint configuration
+## Deploy
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Netlify reads `netlify.toml`: it runs `npm run build`, publishes `dist/`, and serves
+`index.html` for every route so React Router links work on refresh.
