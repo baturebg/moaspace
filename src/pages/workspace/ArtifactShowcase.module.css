@@ -1,0 +1,272 @@
+.featured {
+  padding: 3px 11px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+/* ---------- featured track ---------- */
+.track {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 17px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.trackHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.trackInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.trackTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.trackTitle {
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--text);
+}
+
+.trackSub {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--muted);
+}
+
+.time {
+  font-variant-numeric: tabular-nums;
+}
+
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 56px;
+  padding: 9px 13px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.play {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  transition: transform 0.15s;
+}
+
+.play:hover {
+  transform: scale(1.06);
+}
+
+.pause {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+}
+
+.pause span {
+  width: 4px;
+  height: 13px;
+  background: #fff;
+  border-radius: 1px;
+}
+
+.bars {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.bar {
+  flex-shrink: 0;
+  width: 4px;
+  border-radius: var(--radius-pill);
+  transition: background 0.3s;
+}
+
+.specs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--muted);
+}
+
+.stemsLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--teal-ink);
+}
+
+.stemsLink img {
+  margin: 0 2px;
+}
+
+.stemsLink:hover {
+  text-decoration: underline;
+}
+
+/* ---------- barter ---------- */
+.barter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.barterHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.barterTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.terms {
+  display: flex;
+  gap: 8px;
+}
+
+.term {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 11px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.term p {
+  font-size: 12px;
+  line-height: 16.5px;
+  color: var(--muted);
+}
+
+.termLabel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--teal-ink);
+}
+
+.seeking {
+  color: var(--sky-ink);
+}
+
+.seekDot {
+  width: 8px;
+  height: 8px;
+  background: var(--sky);
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- stats ---------- */
+.stats {
+  display: flex;
+  gap: 10px;
+}
+
+.stat {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 11px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.stat > span:first-child {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.statLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 560px) {
+  .trackHead {
+    align-items: flex-start;
+  }
+
+  .terms {
+    flex-direction: column;
+  }
+
+  .stats {
+    gap: 6px;
+  }
+
+  .stat {
+    padding: 10px 4px;
+  }
+
+  .statLabel {
+    font-size: 9px;
+    letter-spacing: 0.2px;
+  }
+}

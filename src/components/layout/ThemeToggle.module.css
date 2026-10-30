@@ -1,0 +1,27 @@
+.toggle {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  color: var(--text);
+  border-radius: var(--radius-pill);
+  transition: background 0.15s, transform 0.2s;
+}
+
+.toggle:hover {
+  background: var(--surface-3);
+}
+
+.toggle:active {
+  transform: rotate(-20deg) scale(0.92);
+}
+
+.onDark {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.onDark:hover {
+  background: rgba(255, 255, 255, 0.18);
+}

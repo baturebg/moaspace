@@ -1,0 +1,377 @@
+.id {
+  font-weight: 600;
+}
+
+/* ---------- profile ---------- */
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+}
+
+.who {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatarWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatarRing {
+  width: 80px;
+  height: 80px;
+  padding: 2px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(45deg, var(--teal) 0%, var(--sky-bright) 100%);
+  filter: drop-shadow(0 4px 6px rgba(24, 59, 50, 0.07));
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--card);
+  border-radius: var(--radius-pill);
+}
+
+.onlineBadge {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+
+.onlineBadge span {
+  width: 10px;
+  height: 10px;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.name {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+  color: var(--text);
+}
+
+.location {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.location strong {
+  font-weight: 600;
+  color: var(--teal-ink);
+}
+
+.bullet {
+  margin: 0 2px;
+  opacity: 0.4;
+}
+
+.reputation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.modeBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 11px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.modeLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.modePill {
+  padding: 4px 10px;
+}
+
+.modePill > span {
+  background: #fff;
+}
+
+.swap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--teal-ink);
+}
+
+.swap:hover {
+  text-decoration: underline;
+}
+
+/* ---------- sections ---------- */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+}
+
+.objectives {
+  padding-bottom: 16px;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sectionNote {
+  font-weight: 600;
+  color: var(--teal-ink);
+}
+
+.multi {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ---------- personas ---------- */
+.personas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.persona {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px;
+  text-align: left;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.persona:hover {
+  border-color: rgba(2, 126, 111, 0.3);
+}
+
+.personaActive {
+  background: var(--teal-soft);
+  border-color: rgba(2, 126, 111, 0.3);
+}
+
+.personaDot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  background: var(--muted-2);
+  border-radius: var(--radius-pill);
+}
+
+.personaActive .personaDot {
+  background: var(--teal);
+}
+
+.personaText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 15px;
+  white-space: nowrap;
+}
+
+.personaName {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.personaDetail {
+  font-size: 10px;
+}
+
+.personaActive .personaName {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.personaActive .personaDetail {
+  font-weight: 500;
+  color: var(--teal-ink);
+}
+
+.personaBadge {
+  padding: 2px 6px;
+  text-transform: uppercase;
+}
+
+/* ---------- objective chips ---------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 13px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  transition: background 0.15s, color 0.15s;
+}
+
+.chipOn {
+  padding: 4px 13px 5px;
+  font-weight: 600;
+  color: var(--teal-ink);
+  background: var(--teal-soft);
+  border-color: var(--teal-border);
+}
+
+.chipOn:has(img) {
+  gap: 4px;
+}
+
+.chipDot {
+  width: 6px;
+  height: 6px;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- bio ---------- */
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 15px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.bio p {
+  font-size: 13px;
+  line-height: 21px;
+  color: var(--muted);
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill,
+.skillHi {
+  font-weight: 500;
+}
+
+.skill {
+  color: var(--text);
+}
+
+/* ---------- footer actions ---------- */
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.iconButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.iconButton {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s;
+}
+
+.iconButton:hover {
+  border-color: var(--teal-border);
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--teal);
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  transition: filter 0.15s;
+}
+
+.primary:hover {
+  filter: brightness(1.1);
+}

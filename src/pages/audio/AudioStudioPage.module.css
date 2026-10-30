@@ -1,0 +1,890 @@
+/* grey canvas + white sync band bleeding to the shell edges */
+.page {
+  flex: 1;
+  margin: calc(var(--pad-top) * -1) calc(var(--pad-x) * -1) calc(var(--pad-bottom) * -1);
+  padding-bottom: var(--pad-bottom);
+  background: var(--page);
+}
+
+.band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 8px 40px;
+  background: var(--card);
+  box-shadow: 0 2px 8px rgba(24, 59, 50, 0.05);
+}
+
+:global([data-theme='dark']) .band {
+  background: var(--surface);
+}
+
+.project {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.sync {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: var(--teal-ink);
+}
+
+.sync span {
+  width: 10px;
+  height: 10px;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 0 3px rgba(2, 126, 111, 0.2);
+}
+
+.pipe {
+  color: var(--line-soft);
+}
+
+.projLabel {
+  margin-right: -12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+}
+
+.projName {
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--text);
+}
+
+.bandActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.active {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 24px;
+  padding: 0 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--card);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.active svg {
+  color: var(--teal-ink);
+}
+
+.grid {
+  padding: 40px;
+}
+
+/* ---------- shared ---------- */
+.qhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.qleft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.qtag {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  background: var(--navy);
+  border-radius: 4px;
+}
+
+.qtitle {
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--text);
+}
+
+.footLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--teal-ink);
+}
+
+.footLink:hover {
+  text-decoration: underline;
+}
+
+/* keeps the button clear of the quadrant joystick */
+.clearKnob {
+  margin-right: 32px;
+}
+
+@media (max-width: 1100px) {
+  .clearKnob {
+    margin-right: 0;
+  }
+}
+
+/* ---------- Q1 mixer ---------- */
+.meta {
+  display: flex;
+  gap: 16px;
+}
+
+.meta span {
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: var(--radius-pill);
+}
+
+.meta b {
+  margin-left: 4px;
+  color: var(--text);
+}
+
+.transport {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+}
+
+.transportLeft,
+.transportRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bigPlay {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 10px rgba(2, 126, 111, 0.3);
+  transition: transform 0.15s;
+}
+
+.bigPlay:hover {
+  transform: scale(1.05);
+}
+
+.skip {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--text);
+  border-radius: var(--radius-pill);
+}
+
+.skip:hover {
+  background: var(--card);
+}
+
+.vDivider {
+  width: 1px;
+  height: 16px;
+  background: var(--line-soft);
+}
+
+.clock {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.meter {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+  color: var(--muted);
+}
+
+.meter svg {
+  align-self: center;
+  margin-right: 4px;
+}
+
+.meter span {
+  width: 6px;
+  background: var(--teal);
+  border-radius: 1px;
+  transition: height 0.08s linear;
+}
+
+.tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 44px;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) minmax(0, 1fr) 107px;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 10px;
+  border-radius: 8px;
+  transition: opacity 0.2s;
+}
+
+.trackOff {
+  opacity: 0.5;
+}
+
+.trackName {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.trackName > span:not([class]) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ms {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px solid var(--net-line);
+  border-radius: 4px;
+}
+
+.muteOn {
+  color: #fff;
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.soloOn {
+  color: var(--navy);
+  background: #fcd34d;
+  border-color: #f59e0b;
+}
+
+.trackWave {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 28px;
+  padding: 0 8px;
+  background: var(--card);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.trackWave span {
+  width: 3px;
+  background: var(--line-soft);
+  border-radius: 2px;
+}
+
+.trackWave .wavePlayed {
+  background: var(--teal);
+}
+
+.vol {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.vol input {
+  width: 80px;
+  accent-color: var(--teal);
+}
+
+/* ---------- Q2 team ---------- */
+.split {
+  max-width: 121px;
+  white-space: normal;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.memberAvatar {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar40 {
+  width: 40px;
+  height: 40px;
+}
+
+.online,
+.idle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--card);
+  border-radius: var(--radius-pill);
+}
+
+.online {
+  background: #22c55e;
+}
+
+.idle {
+  background: var(--muted-2);
+}
+
+.memberText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.memberText strong {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.memberText > span {
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+.host {
+  padding: 0 6px;
+  font-size: 10px;
+  border-radius: 4px;
+}
+
+.memberSplit {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teal-ink);
+}
+
+.drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 16px;
+  padding: 18px 16px 16px;
+  text-align: center;
+  border: 2px dashed var(--line-soft);
+  border-radius: 12px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.dropOver {
+  background: var(--teal-soft);
+  border-color: var(--teal);
+}
+
+.dropIcon {
+  color: var(--teal-ink);
+}
+
+.drop strong {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.drop > span {
+  margin-bottom: 8px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* ---------- Q3 timeline ---------- */
+.arrangement {
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.sections {
+  position: relative;
+  height: 14px;
+}
+
+.sections button {
+  position: absolute;
+  top: 0;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--muted);
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.sections button:first-child {
+  transform: none;
+}
+
+.sections button:last-child {
+  transform: translateX(-100%);
+}
+
+.sections button:hover {
+  color: var(--teal-ink);
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 12px;
+  margin-top: 8px;
+  background: var(--surface-3);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+
+.barFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, var(--teal), var(--sky-bright));
+  border-radius: inherit;
+}
+
+.playhead {
+  position: absolute;
+  top: -3px;
+  width: 4px;
+  height: 18px;
+  margin-left: -2px;
+  background: var(--text);
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px var(--card);
+}
+
+.scenes {
+  position: relative;
+  height: 17px;
+  margin-top: 8px;
+}
+
+.scenes span {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.scenes i {
+  width: 8px;
+  height: 8px;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+}
+
+.scenes .climax {
+  background: var(--danger);
+}
+
+.scenes .fade {
+  background: var(--muted-2);
+}
+
+.cueForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px dashed var(--teal-border);
+  border-radius: 10px;
+}
+
+.cueAt {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--teal-ink);
+}
+
+.cueForm input {
+  flex: 1 1 200px;
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+  border: 1px solid var(--net-line);
+  border-radius: var(--radius-md);
+  outline: none;
+}
+
+.cueForm input:focus {
+  border-color: var(--teal);
+}
+
+.cues {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.cue {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.cueTime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 58px;
+  padding: 6px 0;
+  background: var(--card);
+  border-radius: 6px;
+}
+
+.cueTime strong {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--teal-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.cueTime span {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.cueTime:hover {
+  box-shadow: 0 0 0 1px var(--teal-border);
+}
+
+.cueBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.cueTitle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cueRole {
+  font-size: 10.5px;
+  border-radius: 4px;
+}
+
+.cueNote {
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 20px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.cueDelete {
+  flex-shrink: 0;
+  padding: 4px;
+  color: var(--muted-2);
+  border-radius: 4px;
+}
+
+.cueDelete:hover {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.synced {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.synced svg {
+  color: var(--teal-ink);
+}
+
+/* ---------- Q4 licensing ---------- */
+.agreement {
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.agreementHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: var(--muted);
+}
+
+.agreement h3 {
+  margin-top: 8px;
+  font-size: 16.5px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.agreement > p {
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+.terms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.terms div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 8px;
+  background: var(--card);
+  border-radius: 6px;
+}
+
+.terms span {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.terms strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teal-ink);
+}
+
+.manifestLabel {
+  margin-top: 16px;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: var(--muted);
+}
+
+.manifest {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.manifest li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+
+.manifest li span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.manifest li svg {
+  flex-shrink: 0;
+  color: var(--teal-ink);
+}
+
+.manifest li span:last-child {
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.licenseActions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.contractLink {
+  display: block;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-align: center;
+  color: var(--teal-ink);
+  border-radius: var(--radius-pill);
+}
+
+.contractLink:hover {
+  background: var(--teal-soft);
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 860px) {
+  .band {
+    padding: 8px 16px;
+  }
+
+  .page {
+    padding-left: var(--pad-x);
+    padding-right: var(--pad-x);
+  }
+
+  .band {
+    margin: 0 calc(var(--pad-x) * -1);
+  }
+
+  .grid {
+    padding: 16px 0;
+  }
+
+  .projLabel {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .track {
+    grid-template-columns: minmax(0, 1fr) 96px;
+    grid-template-rows: auto auto;
+    height: auto;
+    padding: 8px;
+    row-gap: 8px;
+  }
+
+  .trackWave {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .vol input {
+    width: 60px;
+  }
+
+  .tracks {
+    margin-top: 16px;
+  }
+
+  .meta {
+    gap: 6px;
+  }
+
+  .cue {
+    gap: 8px;
+  }
+
+  /* not enough room for every marker label on phones */
+  .sections button:not(:first-child):not(:last-child),
+  .scenes span:nth-child(2) {
+    display: none;
+  }
+}

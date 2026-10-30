@@ -1,0 +1,95 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 2px 8px;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.pill.bordered {
+  padding: 3px 9px;
+}
+
+.pill:not(.bordered) {
+  border-width: 0;
+}
+
+.pill {
+  border-radius: var(--radius-pill);
+}
+
+.tag {
+  border-radius: var(--radius-sm);
+}
+
+.xs {
+  font-size: 9px;
+}
+
+.sm {
+  font-size: 10px;
+}
+
+.md {
+  font-size: 11px;
+}
+
+.lg {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.teal {
+  color: var(--teal-ink);
+  background: var(--teal-soft);
+  border-color: var(--teal-border);
+}
+
+.tealSolid {
+  color: #fff;
+  background: var(--teal);
+}
+
+.neutral {
+  color: var(--muted);
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.white {
+  color: var(--muted);
+  background: var(--card);
+  border-color: var(--border);
+}
+
+.slate {
+  color: var(--muted);
+  background: var(--slate-soft);
+}
+
+.sky {
+  color: var(--sky-deep);
+  background: var(--sky-soft);
+}
+
+.success {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.outline {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: var(--radius-pill);
+}

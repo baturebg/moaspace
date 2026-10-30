@@ -1,0 +1,487 @@
+/* ---------- intro aside ---------- */
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  font-size: 12.5px;
+  color: var(--muted);
+  background: var(--card);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(24, 59, 50, 0.08);
+}
+
+.statusPill strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  margin-right: 2px;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- quadrant head ---------- */
+.qhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.qtitle {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.qtitle :global(.display) {
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--text);
+}
+
+.qnum {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: var(--teal-ink);
+}
+
+.qslash {
+  font-size: 11px;
+  color: var(--muted-2);
+}
+
+.footLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--teal-ink);
+}
+
+.footLink:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Q1 ---------- */
+.tradeList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trade {
+  padding: 14px;
+}
+
+.tradeTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.status {
+  margin-top: 7px;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--teal-ink);
+}
+
+.statusMuted {
+  color: var(--muted);
+}
+
+.tradeTitle {
+  margin-top: 6px;
+  font-size: 16.5px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.arrow {
+  color: var(--teal-ink);
+}
+
+.partner {
+  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+.partner span {
+  color: var(--text);
+}
+
+.due {
+  padding: 4px 10px;
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0 4px;
+  font-size: 11.5px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+}
+
+.progressRow strong {
+  font-weight: 700;
+  color: var(--teal-ink);
+}
+
+/* ---------- Q2 ---------- */
+.compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  margin-top: 32px;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.sideHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sideLabel {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.teal {
+  color: var(--teal-ink);
+}
+
+.sideTitle {
+  margin-top: 8px;
+  font-size: 16.5px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.sideText {
+  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+.sideArt {
+  width: 100%;
+  height: 112px;
+  margin-top: 12px;
+}
+
+.checks {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 16px 0 16px;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--text);
+}
+
+.checks li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checks svg {
+  flex-shrink: 0;
+  color: var(--teal-ink);
+}
+
+.stepper {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.stepper button {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  color: var(--teal-ink);
+  background: var(--card);
+  border: 1px solid var(--net-line);
+  border-radius: var(--radius-pill);
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 56px;
+  padding: 12px;
+  background: var(--teal-soft);
+  border-radius: 12px;
+}
+
+.score p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 360px;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--text);
+}
+
+.score b {
+  font-weight: 400;
+  color: var(--teal-ink);
+}
+
+.scoreIcon {
+  flex-shrink: 0;
+  color: var(--teal-ink);
+}
+
+/* ---------- Q3 ---------- */
+.offers {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.offer {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+}
+
+.offerArt {
+  width: 64px;
+  height: 64px;
+}
+
+.offerBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.offerHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.offerHead h3 {
+  font-size: 16.5px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.offerHead span {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+}
+
+.offerText {
+  margin-top: 2px;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+.ink {
+  color: var(--text);
+}
+
+.tealText {
+  color: var(--teal-ink);
+}
+
+.offerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.empty {
+  padding: 24px 0;
+  font-size: 13px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ---------- Q4 ---------- */
+.locker {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+}
+
+.lockerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.protected {
+  max-width: 130px;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: var(--teal-ink);
+}
+
+.cleared {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--text);
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: var(--card);
+  border-radius: 6px;
+}
+
+.fileIcon {
+  flex-shrink: 0;
+  color: var(--text);
+}
+
+.fileText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.fileText strong {
+  font-size: 12.5px;
+  line-height: 16px;
+  font-weight: 600;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.fileText span {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+}
+
+.fileTag {
+  max-width: 76px;
+  white-space: normal;
+  text-align: left;
+  border-radius: 4px;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist button {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: left;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+.checklist svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--muted-2);
+}
+
+.checklist .done {
+  color: var(--text);
+}
+
+.checklist .done svg {
+  color: var(--teal-ink);
+}
+
+.note {
+  margin-top: 4px;
+  padding: 12px;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+  background: var(--card);
+  border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+  .compare {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 0;
+  }
+
+  .score {
+    margin-top: 16px;
+  }
+
+  .score button {
+    width: 100%;
+  }
+}

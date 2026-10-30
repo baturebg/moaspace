@@ -1,0 +1,758 @@
+/* grey canvas with a white status band bleeding to the shell edges */
+.page {
+  flex: 1;
+  margin: calc(var(--pad-top) * -1) calc(var(--pad-x) * -1) calc(var(--pad-bottom) * -1);
+  padding-bottom: var(--pad-bottom);
+  background: var(--page);
+}
+
+.band {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 40px 12px;
+  background: var(--card);
+  border-bottom: 1px solid var(--surface-2);
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.crumbLead {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: var(--muted);
+}
+
+.leadDot {
+  width: 10px;
+  height: 10px;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+}
+
+.crumbSlash {
+  font-size: 18px;
+  color: var(--line-soft);
+}
+
+.crumbTitle {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text);
+}
+
+.crumbSub {
+  margin-left: -12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--muted);
+}
+
+.bandActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.draft {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface-2);
+  border-radius: var(--radius-pill);
+}
+
+.draft span {
+  width: 8px;
+  height: 8px;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background: var(--line-soft);
+}
+
+.audit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: var(--muted);
+  border-radius: var(--radius-pill);
+}
+
+.audit:hover {
+  background: var(--surface);
+}
+
+.saved {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: var(--text);
+  background: var(--border);
+  border-radius: var(--radius-pill);
+}
+
+.grid {
+  padding: 16px;
+}
+
+/* ---------- shared bits ---------- */
+.qlabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--teal-ink);
+  letter-spacing: 0.3px;
+}
+
+.qtag {
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--teal-ink);
+  background: var(--border);
+  border-radius: var(--radius-pill);
+}
+
+.qtagGrey {
+  color: var(--muted);
+  background: var(--surface-2);
+}
+
+.h2 {
+  margin-top: 4px;
+  font-size: 26px;
+  line-height: 32px;
+  color: var(--text);
+}
+
+.h2sm {
+  margin-top: 4px;
+  font-size: 21px;
+  line-height: 28px;
+  color: var(--text);
+}
+
+.lede {
+  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+/* ---------- Q1 ---------- */
+.q1Head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.q1Head {
+  flex-wrap: nowrap;
+}
+
+.q1Head > div:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 343px;
+}
+
+@media (max-width: 640px) {
+  .q1Head {
+    flex-wrap: wrap;
+  }
+
+  .q1Head > div:first-child {
+    flex-basis: 100%;
+  }
+}
+
+.modeToggle {
+  display: flex;
+  padding: 4px;
+  background: var(--surface-2);
+  border-radius: var(--radius-pill);
+}
+
+.modeToggle button {
+  max-width: 133px;
+  min-height: 40px;
+  padding: 4px 24px;
+  font-size: 12.5px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--muted);
+  border-radius: var(--radius-pill);
+}
+
+.modeToggle .modeOn {
+  color: #fff;
+  background: var(--teal);
+}
+
+.milestones {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.milestone {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.milestone:hover {
+  border-color: var(--net-line);
+}
+
+.msOn {
+  background: var(--teal-soft);
+  border-color: var(--teal-border);
+}
+
+.msTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--teal-ink);
+}
+
+.msPct {
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--card);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.msTitle {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text);
+}
+
+.msBody {
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+.msFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--text);
+}
+
+.msPrice {
+  font-size: 14px;
+  color: var(--teal-ink);
+}
+
+.controls {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.controlRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
+.ctrlLabel {
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--muted);
+}
+
+.total {
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--teal-ink);
+}
+
+.vDivider {
+  width: 1px;
+  height: 32px;
+  background: var(--line-soft);
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.stepper button {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface-3);
+  border-radius: var(--radius-pill);
+}
+
+.stepper button:hover {
+  background: var(--border);
+}
+
+.stepper span {
+  width: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+}
+
+.stepper small {
+  margin-left: 4px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.extra {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+  background: var(--surface-3);
+  border-radius: var(--radius-pill);
+}
+
+.lockNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+.lockNote svg {
+  color: var(--teal-ink);
+}
+
+.secLoc {
+  font-size: 12.5px;
+  letter-spacing: 0.6px;
+  color: var(--muted-2);
+}
+
+/* ---------- Q2 ---------- */
+.q2Head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.confidence {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.confBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--teal-ink);
+  background: var(--teal-soft);
+  border-radius: var(--radius-pill);
+}
+
+.clauses {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.clause {
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.clauseHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.clauseHead h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text);
+}
+
+.clauseHead svg {
+  color: var(--teal-ink);
+}
+
+.clauseNo {
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--text);
+  background: var(--card);
+  border-radius: 4px;
+}
+
+.clause p {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 23px;
+  color: var(--muted);
+}
+
+.clause strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.berne {
+  max-width: 340px;
+  font-size: 11.5px;
+  line-height: 14px;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+}
+
+.expand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--teal-ink);
+}
+
+.expand:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Q3 ---------- */
+.q3Head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.spec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.specIcon {
+  color: var(--teal-ink);
+}
+
+.spec strong {
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--text);
+}
+
+.spec span {
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+.reqs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.req {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.req input {
+  position: absolute;
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.box {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  color: #fff;
+  background: var(--card);
+  border: 1.5px solid var(--muted-2);
+  border-radius: 2px;
+}
+
+.req input:checked + .box {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+.req input:focus-visible + .box {
+  outline: 2px solid var(--sky-bright);
+  outline-offset: 2px;
+}
+
+.channel {
+  font-size: 11.5px;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+}
+
+.ready,
+.notReady {
+  font-size: 11.5px;
+  letter-spacing: 0.6px;
+}
+
+.ready {
+  color: var(--teal-ink);
+}
+
+.notReady {
+  color: var(--alert);
+}
+
+/* ---------- Q4 ---------- */
+.vault {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: #fff;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 6px rgba(2, 126, 111, 0.25);
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.slot {
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.slotHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.verified,
+.pending {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.verified {
+  color: var(--teal-ink);
+}
+
+.sigName {
+  margin-top: 12px;
+  font-size: 22px;
+  line-height: 28px;
+  color: var(--text);
+}
+
+.sigAwait {
+  margin-top: 12px;
+  font-size: 17px;
+  line-height: 24px;
+  color: var(--muted-2);
+}
+
+.sigMeta {
+  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--text);
+}
+
+.sigBar {
+  display: block;
+  height: 4px;
+  margin-top: 8px;
+  overflow: hidden;
+  background: var(--surface-3);
+  border-radius: var(--radius-pill);
+}
+
+.sigBar span {
+  display: block;
+  height: 100%;
+  background: var(--teal);
+  border-radius: inherit;
+  transition: width 0.5s ease;
+}
+
+.sigBar .sigBarPending {
+  background: var(--muted);
+}
+
+.multisig {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.multisig span {
+  width: 8px;
+  height: 8px;
+  background: var(--teal);
+  border-radius: var(--radius-pill);
+}
+
+.send {
+  align-self: flex-start;
+  margin-top: 20px;
+  font-size: 15px;
+  box-shadow: 0 4px 10px rgba(2, 126, 111, 0.25);
+}
+
+@media (max-width: 860px) {
+  .band {
+    padding: 8px 16px 12px;
+  }
+
+  .grid {
+    padding: 16px 0;
+  }
+
+  .page {
+    padding-left: var(--pad-x);
+    padding-right: var(--pad-x);
+  }
+
+  .band {
+    margin: 0 calc(var(--pad-x) * -1);
+  }
+
+  .crumbSub {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .milestones,
+  .slots {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .q2Head {
+    flex-direction: column;
+  }
+
+  .confidence {
+    align-items: flex-start;
+  }
+}

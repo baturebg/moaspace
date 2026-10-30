@@ -1,0 +1,28 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--net-bg);
+}
+
+/* padding is exposed as variables so a page can bleed a band to the edges */
+.main {
+  --pad-x: 24px;
+  --pad-top: 24px;
+  --pad-bottom: 48px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+}
+
+@media (max-width: 860px) {
+  .main {
+    --pad-x: 16px;
+    --pad-top: 16px;
+    --pad-bottom: 24px;
+  }
+}

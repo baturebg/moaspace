@@ -1,0 +1,25 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* the dark Nexus frame sinks its inset panels to the page navy instead of lifting them */
+:global([data-theme='dark']) .shell {
+  --surface: #15192d;
+  --surface-2: #292f49;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+@media (max-width: 860px) {
+  .main {
+    padding: 16px;
+  }
+}

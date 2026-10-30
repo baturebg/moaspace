@@ -1,0 +1,172 @@
+/* Design tokens extracted from the Moa.space Figma file */
+:root {
+  --navy: #1f243c;
+  --teal: #027e6f;
+  /* teal/sky used as text; same as the fills in light, lifted in dark for contrast */
+  --teal-ink: #027e6f;
+  --sky-ink: #0284c7;
+  --teal-soft: #e6f2f0;
+  --teal-border: rgba(2, 126, 111, 0.2);
+  --sky: #0284c7;
+  --sky-bright: #0ea5e9;
+  --sky-soft: #e0f2fe;
+  --sky-deep: #0369a1;
+  --border: #d8e8e6;
+  /* --page is the canvas behind the cards; --surface is the inset panel inside a card.
+     They share a value in light, but split apart in dark. */
+  --page: #f6f8f8;
+  --surface: #f6f8f8;
+  --card: #ffffff;
+  --text: #1f243c;
+  --muted: #657482;
+  --muted-2: #94a3b8;
+  --slate-soft: #e2e8f0;
+  --success-soft: #dcfce7;
+  --success: #15803d;
+  --danger: #bc5b54;
+  --alert: #d97a5c;
+  --header-muted: #91a0aa;
+  --header-link: #c8d2d7;
+  /* "Artist Network" screens */
+  --net-bg: #ffffff;
+  --net-line: #d8e8e6;
+  --net-ink: #4a5866;
+  /* neutral fills & lines used across the inner panels */
+  --surface-2: #eef2f2;
+  --surface-3: #e6ecec;
+  --line-soft: #dfe6e6;
+  --border-strong: #cbe0dd;
+  --danger-soft: #fbefee;
+  --glass: rgba(255, 255, 255, 0.92);
+  --tabbar-bg: rgba(246, 248, 248, 0.9);
+  color-scheme: light;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 18px;
+  --radius-pill: 9999px;
+  --shadow-card: 0 8px 12px rgba(24, 59, 50, 0.07);
+
+  /* "PP Monument Narrow" is a licensed font: drop its files in and it will be used,
+     otherwise Archivo condensed black is the closest free match. */
+  --font-display: 'PP Monument Narrow', 'Archivo', 'Arial Narrow', sans-serif;
+  --font-body: 'Google Sans Flex', 'Google Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  font-family: var(--font-body);
+  /* Figma's "normal" leading for Google Sans Flex is tighter than the browser default */
+  line-height: 1.2;
+  color: var(--text);
+  background: var(--page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark theme — sampled from the Figma dark exports (Main*.png in the project root) */
+:root[data-theme='dark'] {
+  --page: #15192d;
+  --teal: #027e6f;
+  --teal-ink: #8dd1c8;
+  --teal-soft: #183e3e;
+  --teal-border: rgba(2, 126, 111, 0.55);
+  --sky: #0284c7;
+  --sky-ink: #70caef;
+  --sky-bright: #38bdf8;
+  --sky-soft: rgba(2, 132, 199, 0.2);
+  --sky-deep: #70caef;
+  --border: #313a51;
+  --surface: #292f49;
+  --card: #1f243c;
+  --text: #f0f1f5;
+  --muted: #a0a9b3;
+  --muted-2: #737b89;
+  --slate-soft: #323a54;
+  --success-soft: rgba(134, 219, 171, 0.14);
+  --success: #86dbab;
+  --danger: #eca49f;
+  --alert: #d97a5c;
+  --net-bg: #15192d;
+  --net-line: #2a3149;
+  --net-ink: #c8d2d7;
+  --surface-2: #323a54;
+  --surface-3: #3a435d;
+  --line-soft: #36415b;
+  --border-strong: #3a435d;
+  --danger-soft: rgba(236, 164, 159, 0.14);
+  --glass: rgba(21, 25, 45, 0.92);
+  --tabbar-bg: rgba(21, 25, 45, 0.92);
+  --shadow-card: 0 8px 16px rgba(0, 0, 0, 0.3);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* smooth hand-off when switching themes */
+body,
+section,
+header,
+footer {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--page);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sky-bright);
+  outline-offset: 2px;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-stretch: 78%;
+  font-variation-settings: 'wdth' 78;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
